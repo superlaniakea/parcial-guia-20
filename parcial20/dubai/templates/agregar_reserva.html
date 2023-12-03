@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #eceff1;
+            color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        .reserva-container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .reserva-form {
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .reserva-form h2 {
+            margin-top: 0;
+        }
+        .reserva-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="reserva-container">
+        <h1>Agregar Reserva</h1>
+        <form class="reserva-form" method="POST">
+            {% csrf_token %}
+            <h2>Información de la Reserva</h2>
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" id="id_nombre" name="nombre">
+
+            <label for="id_apellidos">Apellidos:</label>
+            <input type="text" id="id_apellidos" name="apellidos">
+
+            <label for="id_edad">Edad:</label>
+            <input type="number" id="id_edad" name="edad">
+
+            <label for="id_correo_electronico">Correo Electrónico:</label>
+            <input type="email" id="id_correo_electronico" name="correo_electronico">
+
+            <label for="id_sexo">Sexo:</label>
+            <select id="id_sexo" name="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
+
+            <label for="id_destino">Destino:</label>
+            <input type="text" id="id_destino" name="destino">
+            
+            <label for="id_fecha_inicio">Fecha de Inicio:</label>
+            <input type="date" id="id_fecha_inicio" name="fecha_inicio" required>
+
+            <label for="id_fecha_fin">Fecha de Fin:</label>
+            <input type="date" id="id_fecha_fin" name="fecha_fin" required>
+
+            <label for="id_cantidad_adultos">Cantidad de Adultos:</label>
+            <input type="number" id="id_cantidad_adultos" name="cantidad_adultos">
+
+            <label for="id_cantidad_menores">Cantidad de Menores:</label>
+            <input type="number" id="id_cantidad_menores" name="cantidad_menores">
+
+            <input type="submit" value="Guardar">
+        </form>
+    </div>
+</body>
+</html>

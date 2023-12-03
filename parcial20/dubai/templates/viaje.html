@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #eceff1;
+            color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        .viajes-container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .viaje {
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .viaje h2 {
+            margin-top: 0;
+        }
+        .viaje p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="viajes-container">
+        <h1>Lista de Viajes</h1>
+        {% for viaje in viajes %}
+            <div class="viaje">
+                <h2>{{ viaje.titulo }}</h2>
+                <p><strong>Descripción:</strong> {{ viaje.descripcion }}</p>
+                <p><strong>Fecha de Llegada:</strong> {{ viaje.fecha_llegada }}</p>
+                <p><strong>Hora de Llegada:</strong> {{ viaje.hora_llegada }}</p>
+                <p><strong>Fecha de Salida:</strong> {{ viaje.fecha_salida }}</p>
+                <p><strong>Hora de Salida:</strong> {{ viaje.hora_salida }}</p>
+                <p><strong>Lugar de Salida:</strong> {{ viaje.lugar_salida }}</p>
+                <p><strong>Lugar de Llegada:</strong> {{ viaje.lugar_llegada }}</p>
+                <p><strong>Espacios Vigentes:</strong> {{ viaje.espacios_vigentes }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

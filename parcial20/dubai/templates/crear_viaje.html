@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #eceff1;
+            color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        .formulario {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+        }
+        .formulario h1 {
+            text-align: center;
+        }
+        .formulario label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .formulario input[type="text"],
+        .formulario textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #CCCCCC;
+            border-radius: 3px;
+        }
+        .formulario button[type="submit"] {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="formulario">
+        <h1>Crear Viaje</h1>
+        <form method="POST" action="{% url 'crear_viaje' %}">
+            {% csrf_token %}
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+            <label for="fecha_llegada">Fecha de Llegada:</label>
+            <input type="date" id="fecha_llegada" name="fecha_llegada" required>
+            <label for="hora_llegada">Hora de Llegada:</label>
+            <input type="time" id="hora_llegada" name="hora_llegada" required>
+            <label for="fecha_salida">Fecha de Salida:</label>
+            <input type="date" id="fecha_salida" name="fecha_salida" required>
+            <label for="hora_salida">Hora de Salida:</label>
+            <input type="time" id="hora_salida" name="hora_salida" required>
+            <label for="lugar_salida">Lugar de Salida:</label>
+            <input type="text" id="lugar_salida" name="lugar_salida" required>
+            <label for="lugar_llegada">Lugar de Llegada:</label>
+            <input type="text" id="lugar_llegada" name="lugar_llegada" required>
+            <label for="espacios_vigentes">Espacios Vigentes:</label>
+            <input type="number" id="espacios_vigentes" name="espacios_vigentes" required>
+            <button type="submit">Crear Viaje</button>
+        </form>
+    </div>
+</body>
+</html>

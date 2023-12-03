@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Registro</title>
+    <style>
+        body {
+            background-color: #eceff1;
+            color: #000000;
+            font-family: Arial, sans-serif;
+        }
+        .registro-container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .registro-form {
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .registro-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a style="color: white; text-decoration: none; font-size: 24px;">Agencia de Turismo VEN A DUBAI</a>
+    <ul>
+        <li><a href="{% url 'inicio' %}" style="color: white; text-decoration: none;">Principal</a></li>
+        <li><a href="{% url 'registro' %}" style="color: white; text-decoration: none;">Registro</a></li>
+        <li><a href="{% url 'reserva' %}" style="color: white; text-decoration: none;">Reserva</a></li>
+        <li><a href="{% url 'blog' %}" style="color: white; text-decoration: none;">Blog</a></li>
+        <li><a href="{% url 'login' %}" style="color: white; text-decoration: none;">Login</a></li>
+        <li><a href="{% url 'reg_user' %}" style="color: white; text-decoration: none;">Registro usuario</a></li>
+    </ul>
+</div>
+
+    <div class="registro-container">
+            <h1>Agregar Registro</h1>
+            <form class="registro-form" method="POST">
+                {% csrf_token %}
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+                
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" required>
+                
+                <label for="correo_electronico">Correo Electrónico</label>
+                <input type="email" id="correo_electronico" name="correo_electronico" required>
+                    
+                <label for="sexo">Sexo</label>
+                <input type="radio" id="masculino" name="sexo" value="masculino" required>
+                    
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="femenino" name="sexo" value="femenino" required>
+                    
+                <label for="femenino">Femenino</label>
+                <label for="destino">Destino</label>
+                <input type="text" id="destino" name="destino" required>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #eceff1;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .registro-container {
+            background-color: #757575;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .registro-info {
+            background-color: #444444;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        .registro-info span {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a>Agencia de Turismo VEN A DUBAI</a>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Principal</a></li>
+            <li><a href="{% url 'agregar_registro' %}">Agregar Registro</a></li>
+            <li><a href="{% url 'reserva' %}">Reserva</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'reg_user' %}">Registro usuario</a></li>
+            <li><a href="{% url 'crear_viaje' %}">Crear Viaje</a></li>
+            <li><a href="{% url 'viaje' %}">Viaje</a></li>
+        </ul>
+    </div>
+    <div class="registro-container">
+        <h1>REGISTRO</h1>
+        <ul>
+            {% for registro in registros %}
+                <li>
+                    <div class="registro-info">
+                        <span><strong>Nombre:</strong> {{ registro.nombre }}</span>
+                        <span><strong>Apellidos:</strong> {{ registro.apellidos }}</span>
+                        <span><strong>Edad:</strong> {{ registro.edad }}</span>
+                        <span><strong>Correo Electrónico:</strong> {{ registro.correo_electronico }}</span>
+                        <span><strong>Sexo:</strong> {{ registro.sexo }}</span>
+                        <span><strong>Destino:</strong> {{ registro.destino }}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
