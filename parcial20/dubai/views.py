@@ -53,20 +53,20 @@ def index(request):
     return render(request, 'index.html', {'registros': registros, 'reserva': reserva, 'viajes': viajes})
 
 
+def registro(request):
+    registros = Registro.objects.all()
+    return render(request, 'registro.html', {'registros': registros})
+
+
 def agregar_registro(request):
     if request.method == "POST":
         formulario = RegistroForm(request.POST)
         if formulario.is_valid():
             registro = formulario.save()  # Guarda el formulario y obtén el objeto de registro
-            return redirect('registro', id=registro.id)
+            return HttpResponseRedirect("/")
     else:
         formulario = RegistroForm()
     return render(request, "agregar_registro.html", {"form": formulario})
-
-
-def registro(request):
-    registros = Registro.objects.all()
-    return render(request, 'registro.html', {'registros': registros})
 
 
 def reserva(request):

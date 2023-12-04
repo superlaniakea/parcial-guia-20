@@ -51,6 +51,7 @@
         <ul>
             <li><a href="{% url 'inicio' %}">Principal</a></li>
             <li><a href="{% url 'agregar_registro' %}">Agregar Registro</a></li>
+            <li><a href="{% url 'agregar_reserva' %}">Agregar Reserva</a></li>
             <li><a href="{% url 'reserva' %}">Reserva</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -63,7 +64,6 @@
         <h1>REGISTRO</h1>
         <ul>
             {% for registro in registros %}
-                <li>
                     <div class="registro-info">
                         <span><strong>Nombre:</strong> {{ registro.nombre }}</span>
                         <span><strong>Apellidos:</strong> {{ registro.apellidos }}</span>
@@ -72,7 +72,6 @@
                         <span><strong>Sexo:</strong> {{ registro.sexo }}</span>
                         <span><strong>Destino:</strong> {{ registro.destino }}</span>
                     </div>
-                </li>
             {% endfor %}
         </ul>
     </div>
