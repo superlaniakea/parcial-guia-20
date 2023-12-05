@@ -3,6 +3,11 @@ from .models import Registro, Reserva, Viaje
 # Register your models here.
 
 
+@admin.register(Viaje)
+class ViajeAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Registro)
 class RegistroAdmin(admin.ModelAdmin):
     pass
@@ -10,9 +15,4 @@ class RegistroAdmin(admin.ModelAdmin):
 
 @admin.register(Reserva)
 class ReservaAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Viaje)
-class ViajeAdmin(admin.ModelAdmin):
     pass

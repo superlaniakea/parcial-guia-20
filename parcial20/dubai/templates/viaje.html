@@ -48,9 +48,10 @@
         <a>Agencia de Turismo VEN A DUBAI</a>
         <ul>
             <li><a href="{% url 'inicio' %}">Principal</a></li>
-            <li><a href="{% url 'agregar_reserva' %}">Agregar Reserva</a></li>
-            <li><a href="{% url 'agregar_registro' %}">Agregar Registro</a></li>
             <li><a href="{% url 'reserva' %}">Reserva</a></li>
+            <li><a href="{% url 'agregar_reserva' %}">Agregar Reserva</a></li>
+            <li><a href="{% url 'registro' %}">Registro</a></li>
+            <li><a href="{% url 'agregar_registro' %}">Agregar Registro</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'reg_user' %}">Registro usuario</a></li>
@@ -61,7 +62,7 @@
         <h1>Lista de Viajes</h1>
         {% for viaje in viajes %}
             <div class="viaje">
-                <h2>{{ viaje.titulo }}</h2>
+                <h2>{{ viaje.destino }}</h2>
                 <p><strong>Descripción:</strong> {{ viaje.descripcion }}</p>
                 <p><strong>Fecha de Llegada:</strong> {{ viaje.fecha_llegada }}</p>
                 <p><strong>Hora de Llegada:</strong> {{ viaje.hora_llegada }}</p>

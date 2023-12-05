@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views
 from django.urls import path
 from dubai import views
 
@@ -28,7 +29,7 @@ urlpatterns = [
     path('eliminar_reserva/<int:id>/',
          views.eliminar_reserva, name='eliminar_reserva'),
     # Ruta URL para la vista 'login'
-    path('login/', views.iniciar_sesion, name='login'),
+    path('accounts/login/', views.iniciar_sesion, name='login'),
     # Ruta URL para la vista 'reg_user'
     path('reg_user/', views.reg_user, name='reg_user'),
     path('registro/', views.registro, name='registro'),
@@ -36,4 +37,5 @@ urlpatterns = [
     path('reserva/', views.reserva, name='reserva'),
     path('crear_viaje/', views.crear_viaje, name='crear_viaje'),
     path('viaje/', views.viaje, name='viaje'),
+    path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
 ]

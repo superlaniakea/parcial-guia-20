@@ -38,6 +38,21 @@
         .reserva-form h2 {
             margin-top: 0;
         }
+        .reserva-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .reserva-form input[type="text"],
+        .reserva-form input[type="number"],
+        .reserva-form input[type="email"],
+        .reserva-form select,
+        .reserva-form input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
         .reserva-form input[type="submit"] {
             background-color: #4CAF50;
             color: white;
@@ -45,6 +60,9 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+        .reserva-form input[type="submit"]:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -63,6 +81,7 @@
             <li><a href="{% url 'viaje' %}" style="color: white; text-decoration: none;">Viaje</a></li>
         </ul>
     </div>
+    {% if user.is_staff %}
     <div class="reserva-container">
         <h1>Agregar Reserva</h1>
         <form class="reserva-form" method="POST">
@@ -70,39 +89,31 @@
             <h2>Información de la Reserva</h2>
             <label for="id_nombre">Nombre:</label>
             <input type="text" id="id_nombre" name="nombre">
-
             <label for="id_apellidos">Apellidos:</label>
             <input type="text" id="id_apellidos" name="apellidos">
-
             <label for="id_edad">Edad:</label>
             <input type="number" id="id_edad" name="edad">
-
             <label for="id_correo_electronico">Correo Electrónico:</label>
             <input type="email" id="id_correo_electronico" name="correo_electronico">
-
             <label for="id_sexo">Sexo:</label>
             <select id="id_sexo" name="sexo">
                 <option value="M">Masculino</option>
                 <option value="F">Femenino</option>
             </select>
-
             <label for="id_destino">Destino:</label>
             <input type="text" id="id_destino" name="destino">
-            
             <label for="id_fecha_inicio">Fecha de Inicio:</label>
             <input type="date" id="id_fecha_inicio" name="fecha_inicio" required>
-
             <label for="id_fecha_fin">Fecha de Fin:</label>
             <input type="date" id="id_fecha_fin" name="fecha_fin" required>
-
             <label for="id_cantidad_adultos">Cantidad de Adultos:</label>
             <input type="number" id="id_cantidad_adultos" name="cantidad_adultos">
-
             <label for="id_cantidad_menores">Cantidad de Menores:</label>
             <input type="number" id="id_cantidad_menores" name="cantidad_menores">
-
             <input type="submit" value="Guardar">
         </form>
     </div>
+    {% endif %}
 </body>
 </html>
+  

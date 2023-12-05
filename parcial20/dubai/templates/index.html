@@ -14,10 +14,19 @@
           <ul style="list-style: none; display: flex; gap: 20px; margin: 0;">
             <li><a href="{% url 'inicio' %}" style="color: white; text-decoration: none;">Principal</a></li>
             <li><a href="{% url 'login' %}" style="color: white; text-decoration: none;">Login</a></li>
+            <li><a href="{% url 'viaje' %}" style="color: white; text-decoration: none;">Viaje</a></li>
             <li><a href="{% url 'reg_user' %}" style="color: white; text-decoration: none;">Registro usuario</a></li>
             <li><a href="{% url 'registro' %}" style="color: white; text-decoration: none;">Registro</a></li>
             <li><a href="{% url 'reserva' %}" style="color: white; text-decoration: none;" >Reserva</a></li>
             <li><a href="{% url 'blog' %}" style="color: white; text-decoration: none;">Blog</a></li>
+            {% if user.is_authenticated %}
+            <li>
+              <form action="{% url 'cerrar_sesion' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="color: white; text-decoration: none; background: none; border: none; cursor: pointer;">Cerrar sesión</button>
+              </form>
+            </li>
+            {% endif %}
           </ul>
         </div>
     </nav>

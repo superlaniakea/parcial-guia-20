@@ -24,6 +24,13 @@ INSTALLED_APPS = [
     'dubai',
 ]
 
+# URL de inicio de sesión
+LOGIN_URL = 'login'
+
+# URL de cierre de sesión
+LOGOUT_URL = 'cerrar_sesion'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

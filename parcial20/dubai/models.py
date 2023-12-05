@@ -1,7 +1,20 @@
 from django.db import models
 from django.utils import timezone
 
-valor_predeterminado = timezone.now
+
+class Viaje(models.Model):
+    destino = models.CharField(max_length=100, default="Untitled Trip")
+    descripcion = models.TextField(default=timezone.now)
+    fecha_llegada = models.DateField()
+    hora_llegada = models.TimeField()
+    fecha_salida = models.DateField()
+    hora_salida = models.TimeField()
+    lugar_salida = models.CharField(max_length=100)
+    lugar_llegada = models.CharField(max_length=100)
+    espacios_vigentes = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.destino} - {self.lugar_salida} a {self.lugar_llegada}"
 
 
 class Registro(models.Model):
@@ -31,18 +44,3 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"{self.nombre} {self.apellidos} - {self.destino}"
-
-
-class Viaje(models.Model):
-    titulo = models.CharField(max_length=100, default="Untitled Trip")
-    descripcion = models.TextField(default=timezone.now)
-    fecha_llegada = models.DateField()
-    hora_llegada = models.TimeField()
-    fecha_salida = models.DateField()
-    hora_salida = models.TimeField()
-    lugar_salida = models.CharField(max_length=100)
-    lugar_llegada = models.CharField(max_length=100)
-    espacios_vigentes = models.PositiveIntegerField()
-
-    def __str__(self):
-        return f"{self.titulo} - {self.lugar_salida} a {self.lugar_llegada}"
